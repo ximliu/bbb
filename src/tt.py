@@ -7,6 +7,8 @@ from lxml import etree
 import tt_USA
 import tt_China
 
+odyssey_id = '-1001480724933'
+
 film_list = tt_USA.get_file_top_ten()
 film_list_China = tt_China.get_file_top_ten()
 for film in film_list_China:
@@ -26,7 +28,7 @@ logger = config.setup_log()
 
 photo_china = open("Mainland.jpg", "rb")
 photo_usa = open("NorthAmerica.jpg", "rb")
-odyssey_id = '-1001480724933'
+
 
 baomihua = emoji.emojize(':popcorn:')
 one = "1️⃣"
