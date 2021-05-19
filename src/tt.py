@@ -11,8 +11,7 @@ odyssey_id = 'YOUR CHAT_ID'
 
 film_list = tt_USA.get_file_top_ten()
 film_list_China = tt_China.get_file_top_ten()
-for film in film_list_China:
-    print(film)
+
 
 headers = {
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) '
