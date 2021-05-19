@@ -7,7 +7,7 @@ from lxml import etree
 import tt_USA
 import tt_China
 
-odyssey_id = '-1001480724933'
+odyssey_id = 'YOUR CHAT_ID'
 
 film_list = tt_USA.get_file_top_ten()
 film_list_China = tt_China.get_file_top_ten()
