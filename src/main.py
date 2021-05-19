@@ -235,7 +235,7 @@ def delete_user(message):
                         try:
                             string2 = "/Users/{" + embyId + "}"
                             dele = get_endpoint(string2)
-                            requests.delete(dele,{'id':embyId})
+                            requests.delete(dele, {'id': embyId})
                             bot.send_message(message.chat.id, "emby远程数据库删除" + embyName + "成功！")
                             print("emby远程数据库删除" + embyName + "成功！")
                             break
@@ -248,6 +248,7 @@ def delete_user(message):
     else:
         bot.send_message(message.chat.id, 'bot遇到错误，请联系管理员！')
         print('bot遇到错误，请联系管理员！')
+
 
 @bot.message_handler(commands=['reset'])
 def reset_user(message):
@@ -271,21 +272,22 @@ def reset_user(message):
 
                 if yourUserName == row[1] and yourUserUID == row[2]:
                     try:
-                        conn.execute("UPDATE t_telegrameUser set password = "+ yourPasswd +" where telegramID="+ yourUserName)
-                        conn.execute("UPDATE t_embyUser set password = "+ yourPasswd +" where embyID="+ embyName)
+                        conn.execute(
+                            "UPDATE t_telegrameUser set password = " + yourPasswd + " where telegramID=" + yourUserName)
+                        conn.execute("UPDATE t_embyUser set password = " + yourPasswd + " where embyID=" + embyName)
                         conn.commit()
                         bot.send_message(message.chat.id, "机器人重置本地数据库密码成功")
                     except:
                         bot.send_message(message.chat.id, "机器人重置本地数据库密码失败，请联系管理员！")
                         break
 
-                    string2 = "Users/{"+embyId+"}/Password"
+                    string2 = "Users/{" + embyId + "}/Password"
                     res = get_endpoint(string2)
                     try:
-                        requests.post(res,{'Id':embyId,'NewPw':yourPasswd,'ResetPassword':True})
+                        requests.post(res, {'Id': embyId, 'NewPw': yourPasswd, 'ResetPassword': True})
                         bot.send_message(message.chat.id, "机器人重置emby远程数据库密码成功\n"
-                                                          "你的账号是："+embyName+"\n"
-                                                          "你的密码是:"+yourPasswd)
+                                                          "你的账号是：" + embyName + "\n"
+                                                                                "你的密码是:" + yourPasswd)
                     except:
                         bot.send_message(message.chat.id, "机器人重置emby远程数据库密码失败，请联系管理员！")
                         break
@@ -298,7 +300,7 @@ def reset_user(message):
                         requests.post(res, {'Id': embyId, 'NewPw': yourPasswd, 'ResetPassword': True})
                         bot.send_message(message.chat.id, "机器人重置emby远程数据库密码成功\n"
                                                           "你的账号是：" + embyName + "\n"
-                                                          "你的密码是:" + yourPasswd)
+                                                                                "你的密码是:" + yourPasswd)
                     except:
                         bot.send_message(message.chat.id, "机器人重置emby远程数据库密码失败，请联系管理员！")
                         break
@@ -319,9 +321,6 @@ def reset_user(message):
                         bot.send_message(message.chat.id, '本地机器人数据库写入失败，可能会导致无法查询用户账号密码，请联系管理员！')
                         print('本地机器人数据库写入失败，可能会导致无法查询用户账号密码，请联系管理员！')
                         break
-
-
-
 
 
 @bot.message_handler()
