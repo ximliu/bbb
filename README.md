@@ -16,7 +16,7 @@
 
 4.修改config.py进行配置，TOKEN 为 Bot 的 API:
 
-```TOKEN = 'Your TOKEN'```
+```TGBOT_TOKEN = 'Your TOKEN'```
 
 5.修改tt.py进行配置，odyssey_id为目标Chat_ID:
 
