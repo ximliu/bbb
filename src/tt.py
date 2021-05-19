@@ -85,7 +85,7 @@ for index in range(len(name_China)):
 
 @bot.message_handler(commands=['list_China'])
 def send_photo1(message):
-    msg = bot.send_photo(chat_id=odyssey_id, photo=photo_china, caption=[baomihua + "#TopBoxOffice #NorthAmerica #票房\n"
+    msg = bot.send_photo(chat_id=odyssey_id, photo=photo_china, caption=[baomihua + "#TopBoxOffice #Mainland #票房\n"
                                                                                     "\n"
                                                                                     "中国票房周榜（" + date_China + " 日 ，数据为该周末票房 / 电影总票房 结算货币：人民币）\n"
                                                                                                              "\n"
