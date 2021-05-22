@@ -26,9 +26,8 @@ TOKEN = os.environ.get('TOKEN') or config.TGBOT_TOKEN
 bot = telebot.TeleBot(TOKEN)
 logger = config.setup_log()
 
-photo_china = open("Mainland.jpg", "rb")
-photo_usa = open("NorthAmerica.jpg", "rb")
-
+photo_china = open("Mainland.PNG", "rb")
+photo_usa = open("NorthAmerica.PNG", "rb")
 
 baomihua = emoji.emojize(':popcorn:')
 one = "1️⃣"
@@ -85,15 +84,15 @@ for index in range(len(name_China)):
 
 @bot.message_handler(commands=['list_China'])
 def send_photo1(message):
-    msg = bot.send_photo(chat_id=odyssey_id, photo=photo_china, caption=[baomihua + "#TopBoxOffice #Mainland #票房\n"
-                                                                                    "\n"
-                                                                                    "中国票房周榜（" + date_China + " 日 ，数据为该周末票房 / 电影总票房 结算货币：人民币）\n"
-                                                                                                             "\n"
+    msg = bot.send_photo(chat_id=odyssey_id, photo=photo_china, caption=["#TopBoxOffice #Mainland #票房\n"
+                                                                         "\n"
+                                                                         + baomihua + "中国票房周榜（" + date_China + " | 人民币)\n"
+                                                                                                               "\n"
                                                                          + one + name_China[0] + "\n"
                                                                                                  "       " +
-                                                                         wk_money_China[0][
-                                                                             0] + "万 / " + all_money_China[0] + "万\n "
-                                                                                                                "\n"
+                                                                         wk_money_China[0] + "万 / " + all_money_China[
+                                                                             0] + "万\n "
+                                                                                  "\n"
                                                                          + two + name_China[1] + "\n"
                                                                                                  "       " +
                                                                          wk_money_China[
@@ -146,10 +145,10 @@ def send_photo1(message):
 
 @bot.message_handler(commands=['list_USA'])
 def send_photo1(message):
-    msg = bot.send_photo(chat_id=odyssey_id, photo=photo_usa, caption=[baomihua + "#TopBoxOffice #NorthAmerica #票房\n"
-                                                                                  "\n"
-                                                                                  "北美票房周榜（" + date_USA + " 日 ，数据为该周末票房 / 电影总票房 结算货币：美元）\n"
-                                                                                                         "\n"
+    msg = bot.send_photo(chat_id=odyssey_id, photo=photo_usa, caption=["#TopBoxOffice #NorthAmerica #票房\n"
+                                                                       "\n"
+                                                                       + baomihua + "北美票房周榜（" + date_USA + " |  美元)\n"
+                                                                                                           "\n"
                                                                        + one + name_USA[0] + "\n"
                                                                                              "       " + wk_money_USA1[
                                                                            0] + "万 / " + all_money_USA1[0] + "万\n "
