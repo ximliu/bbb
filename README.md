@@ -4,7 +4,7 @@
 
 票房信息机器人使用指南：   
 
-1.创建一个新的机器人，获取你创建好的机器人TOKEN，将机器人设为目标chat管理员。并通过@getidsbot机器人获取你的目标Chat_ID.
+1.创建一个新的机器人，获取你创建好的机器人TOKEN，将机器人设为目标Chat管理员。并通过@getidsbot机器人获取你的目标Chat_ID.
 
 2.将源代码拉取到本地:
 
@@ -16,7 +16,7 @@
 
 4.修改config.py进行配置，TOKEN 为 Bot 的 API:
 
-```TOKEN = 'Your TOKEN'```
+```TGBOT_TOKEN = 'Your TOKEN'```
 
 5.修改tt.py进行配置，odyssey_id为目标Chat_ID:
 
