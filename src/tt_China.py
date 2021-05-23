@@ -19,6 +19,15 @@ def get_file_top_ten():
         wk_money_temp = selector.xpath('//*[@id="__liveLayoutContainer"]/div/div/div/div/div[2]/div/div[2]/div[2]/ul['+str(j) +']/li[6]/text()')[0]
         all_money_temp = selector.xpath(
             '//*[@id="__liveLayoutContainer"]/div/div/div/div/div[2]/div/div[2]/div[2]/ul['+str(j)+']/li[7]/text()')[0]
+
+        wk_money_temp = float(wk_money_temp)
+        wk_money_temp = int(wk_money_temp)
+        wk_money_temp = str(wk_money_temp)
+
+        all_money_temp = float(all_money_temp)
+        all_money_temp = int(all_money_temp)
+        all_money_temp = str(all_money_temp)
+
         file_temp.name = title_name
         file_temp.wk_money = wk_money_temp
         file_temp.all_money = all_money_temp
