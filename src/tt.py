@@ -86,7 +86,7 @@ def send_photo1(message):
     msg = bot.send_photo(chat_id=odyssey_id, photo=photo_china, parse_mode='MARKDOWN',
                          caption=["#TopBoxOffice #Mainland #票房\n"
                                   "\n"
-                                  + baomihua + " *内地票房周榜（" + date_China1 + '月' + date_China2 + "日 | 人民币)*\n"
+                                  + baomihua + " *内地票房周榜*（" + date_China1 + '月' + date_China2 + "日 | 人民币)\n"
                                                                                               "\n"
                                   + one + name_China[0] + "\n"
                                                           "       " +
@@ -138,7 +138,7 @@ def send_photo1(message):
                                   wk_money_China[
                                       9] + "万 / " + all_money_China[9] + "万\n "
                                                                          "\n"
-                                                                         "Channel: [@Odyssey+](https://t.me/odysseyplus)"])
+                                                                         "*Channel:* [@Odyssey+](https://t.me/odysseyplus)"])
     bot.send_message(message.chat.id, "中国电影票房榜单已推送到Odyssey频道")
     bot.delete_message(odyssey_id, msg.message_id + 1)
 
@@ -148,7 +148,7 @@ def send_photo1(message):
     msg = bot.send_photo(chat_id=odyssey_id, photo=photo_usa, parse_mode='MARKDOWN',
                          caption=["#TopBoxOffice #NorthAmerica #票房\n"
                                   "\n"
-                                  + baomihua + " *北美票房周榜（" + date_USA1 + "月" + date_USA2 + "日 | 美元)*\n"
+                                  + baomihua + " *北美票房周榜*（" + date_USA1 + "月" + date_USA2 + "日 | 美元)\n"
                                                                                           "\n"
                                   + one + name_USA[0] + "\n"
                                                         "       " + wk_money_USA1[
@@ -192,7 +192,7 @@ def send_photo1(message):
                                                         "       " + wk_money_USA1[
                                       9] + "万 / " + all_money_USA1[9] + "万\n "
                                                                         "\n"
-                                                                        "Channel: [@Odyssey+](https://t.me/odysseyplus)"])
+                                                                        "*Channel:* [@Odyssey+](https://t.me/odysseyplus)"])
     bot.send_message(message.chat.id, "美国电影票房榜单已推送到Odyssey频道")
     bot.delete_message(odyssey_id, msg.message_id + 1)
 
