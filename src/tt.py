@@ -7,8 +7,6 @@ from lxml import etree
 import tt_USA
 import tt_China
 
-odyssey_id = 'YOUR CHAT_ID'
-
 film_list = tt_USA.get_file_top_ten()
 film_list_China = tt_China.get_file_top_ten()
 
@@ -20,6 +18,7 @@ movieurl = "https://ent.sina.com.cn/movie/top10bang/"
 res = requests.get(url=movieurl, headers=headers).content
 selector = etree.HTML(res)
 
+odyssey_id = config.CHAT_ID
 TOKEN = os.environ.get('TOKEN') or config.TGBOT_TOKEN
 bot = telebot.TeleBot(TOKEN)
 logger = config.setup_log()
@@ -87,7 +86,7 @@ def send_photo1(message):
     msg = bot.send_photo(chat_id=odyssey_id, photo=photo_china, parse_mode='MARKDOWN',
                          caption=["#TopBoxOffice #Mainland #票房\n"
                                   "\n"
-                                  + baomihua + " 内地票房周榜（" + date_China1 + '月' + date_China2 + "日 | 人民币)\n"
+                                  + baomihua + " *内地票房周榜（" + date_China1 + '月' + date_China2 + "日 | 人民币)*\n"
                                                                                               "\n"
                                   + one + name_China[0] + "\n"
                                                           "       " +
@@ -149,7 +148,7 @@ def send_photo1(message):
     msg = bot.send_photo(chat_id=odyssey_id, photo=photo_usa, parse_mode='MARKDOWN',
                          caption=["#TopBoxOffice #NorthAmerica #票房\n"
                                   "\n"
-                                  + baomihua + " 北美票房周榜（" + date_USA1 + "月" + date_USA2 + "日 | 美元)\n"
+                                  + baomihua + " *北美票房周榜（" + date_USA1 + "月" + date_USA2 + "日 | 美元)*\n"
                                                                                           "\n"
                                   + one + name_USA[0] + "\n"
                                                         "       " + wk_money_USA1[

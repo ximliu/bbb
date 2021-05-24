@@ -14,19 +14,16 @@
 
 ```pip install -r requirements.txt```
 
-4.修改config.py进行配置，TOKEN 为 Bot 的 API:
+4.修改config.py进行配置，TOKEN 为 Bot 的 API，CHAT_ID为目标Chat_ID:
 
-```TGBOT_TOKEN = 'Your TOKEN'```
+```TGBOT_TOKEN = 'YOUR TOKEN'```
+```CHAT_ID = 'YOUR CHAT_ID'```
 
-5.修改tt.py进行配置，odyssey_id为目标Chat_ID:
-
-```odyssey_id = 'YOUR CHAT_ID'```
-
-6.运行机器人：
+5.运行机器人：
 
 ```nohup /usr/bin/python3 /root/Odyssey_Bot2/src/tt.py &```
 
-7.使用机器人(请把机器人私有化，切勿让他人使用)
+6.使用机器人(请把机器人私有化，切勿让他人使用)
 
 向机器人输入指令:```/list_USA```,即可向目标Chat推送北美票房排行榜
 
