@@ -7,9 +7,6 @@ from lxml import etree
 import tt_USA
 import tt_China
 
-film_list = tt_USA.get_file_top_ten()
-film_list_China = tt_China.get_file_top_ten()
-
 headers = {
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) '
                   'Chrome/87.0.4280.88 Safari/537.36'}
@@ -38,56 +35,31 @@ eight = '8️⃣'
 nine = '9️⃣'
 ten = '🔟'
 
-date_USA = selector.xpath('//*[@id="__liveLayoutContainer"]/div/div/div/div/div[1]/div/div[1]/div[2]/span/text()')
-date_USA = date_USA[0]
-date_USA1 = date_USA[-5:-3]
-date_USA2 = date_USA[-2:]
-
-date_China = selector.xpath('//*[@id="__liveLayoutContainer"]/div/div/div/div/div[2]/div/div[1]/div[2]/span/text()')
-date_China = date_China[0]
-date_China1 = date_China[-5:-3]
-date_China2 = date_China[-2:]
-
-name_USA = []
-wk_money_USA = []
-all_money_USA = []
-for film in film_list:
-    name_USA.append(film.name)
-    wk_money_USA.append(film.wk_money)
-    all_money_USA.append(film.all_money)
-
-name_China = []
-wk_money_China = []
-all_money_China = []
-for film in film_list_China:
-    name_China.append(film.name)
-    wk_money_China.append(film.wk_money)
-    all_money_China.append(film.all_money)
-
-wk_money_USA1 = []
-all_money_USA1 = []
-for i in wk_money_USA:
-    i = i[:-4]
-    wk_money_USA1.append(i)
-
-for i in all_money_USA:
-    i = i[:-4]
-    all_money_USA1.append(i)
-
-for index in range(len(name_USA)):
-    name_USA[index] = " " + name_USA[index]
-
-for index in range(len(name_China)):
-    name_China[index] = " " + name_China[index]
-
 
 @bot.message_handler(commands=['list_China'])
 def send_photo1(message):
+    film_list_China = tt_China.get_file_top_ten()
+
+    date_China = selector.xpath('//*[@id="__liveLayoutContainer"]/div/div/div/div/div[2]/div/div[1]/div[2]/span/text()')
+    date_China = date_China[0]
+    date_China1 = date_China[-5:-3]
+    date_China2 = date_China[-2:]
+
+    name_China = []
+    wk_money_China = []
+    all_money_China = []
+    for film in film_list_China:
+        name_China.append(film.name)
+        wk_money_China.append(film.wk_money)
+        all_money_China.append(film.all_money)
+
+    for index in range(len(name_China)):
+        name_China[index] = " " + name_China[index]
     msg = bot.send_photo(chat_id=odyssey_id, photo=photo_china, parse_mode='MARKDOWN',
                          caption=["#TopBoxOffice #Mainland #票房\n"
                                   "\n"
                                   + baomihua + " *内地票房周榜*（" + date_China1 + '月' + date_China2 + "日 | 人民币)\n"
-                                                                                              "\n"
+                                                                                                "\n"
                                   + one + name_China[0] + "\n"
                                                           "       " +
                                   wk_money_China[0] + "万 / " + all_money_China[
@@ -145,11 +117,38 @@ def send_photo1(message):
 
 @bot.message_handler(commands=['list_USA'])
 def send_photo1(message):
+    film_list = tt_USA.get_file_top_ten()
+    date_USA = selector.xpath('//*[@id="__liveLayoutContainer"]/div/div/div/div/div[1]/div/div[1]/div[2]/span/text()')
+    date_USA = date_USA[0]
+    date_USA1 = date_USA[-5:-3]
+    date_USA2 = date_USA[-2:]
+
+    name_USA = []
+    wk_money_USA = []
+    all_money_USA = []
+    for film in film_list:
+        name_USA.append(film.name)
+        wk_money_USA.append(film.wk_money)
+        all_money_USA.append(film.all_money)
+
+    wk_money_USA1 = []
+    all_money_USA1 = []
+    for i in wk_money_USA:
+        i = i[:-4]
+        wk_money_USA1.append(i)
+
+    for i in all_money_USA:
+        i = i[:-4]
+        all_money_USA1.append(i)
+
+    for index in range(len(name_USA)):
+        name_USA[index] = " " + name_USA[index]
+
     msg = bot.send_photo(chat_id=odyssey_id, photo=photo_usa, parse_mode='MARKDOWN',
                          caption=["#TopBoxOffice #NorthAmerica #票房\n"
                                   "\n"
                                   + baomihua + " *北美票房周榜*（" + date_USA1 + "月" + date_USA2 + "日 | 美元)\n"
-                                                                                          "\n"
+                                                                                            "\n"
                                   + one + name_USA[0] + "\n"
                                                         "       " + wk_money_USA1[
                                       0] + "万 / " + all_money_USA1[0] + "万\n "
