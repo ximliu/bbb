@@ -1,4 +1,3 @@
-这是Odyssey emby公益服社区的专用telegram机器人（已开发票房推送功能）
 =================
 *注：本机器人基于Python编写，需要用户自行配置Python3.7环境*
 
@@ -8,7 +7,7 @@
 
 2.将源代码拉取到本地:
 
-    git clone https://github.com/necker14/Odyssey_Bot2.git
+    git clone https://github.com/Scholar-m/bbb.git
 
 3.安装依赖:
 
