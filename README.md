@@ -20,7 +20,7 @@
 
 5.运行机器人：
 
-```nohup /usr/bin/python3 /root/Odyssey_Bot2/src/tt.py &```
+```nohup /usr/bin/python3 /root/bot/src/tt.py &```
 
 6.使用机器人(请把机器人私有化，切勿让他人使用)
 
